@@ -54,12 +54,14 @@ const TaskCard = ({ row }) => {
   }, [isUninitialized, address]);
 
   useEffect(() => {
-    if (result && result?.isAllowed) {
+    if (!result) return;
+
+    if (result.isAllowed) {
       setOpenSuccess(true);
-    } else if (result && !result?.isAllowed) {
+    } else {
       setOpenError(true);
     }
-  }, [isLoading, result]);
+  }, [result]);
 
   const handleMint = async () => {
     setOpenSuccess(false);

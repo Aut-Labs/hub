@@ -1,4 +1,4 @@
- 
+
 import { createTheme } from "@mui/material/styles";
 import { Fade } from "@mui/material";
 import AutButtonStyles from "./button-styles";
@@ -82,7 +82,7 @@ const AutTheme = createTheme({
   }
 });
 
-AutTheme.typography = AutTextStyles(AutTheme);
+AutTheme.typography = AutTextStyles(AutTheme) as any;
 AutTheme.components.MuiButton = AutButtonStyles(AutTheme);
 AutTheme.components.MuiDialog = AutDialogStyles(AutTheme);
 AutTheme.components.MuiTextField = AutTextFieldStyles(AutTheme);

@@ -1,4 +1,5 @@
 import { PaletteColor } from "@mui/material";
+import { CSSProperties } from "react";
 
 declare module "@mui/material/styles/createTypography" {
   interface Typography {

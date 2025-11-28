@@ -28,9 +28,12 @@ function App() {
   const isParticipationScorePage = location.pathname === "/playground";
 
   useEffect(() => {
+    console.log('App useEffect triggered, isParticipationScorePage:', isParticipationScorePage);
     if (!isParticipationScorePage) {
+      console.log('Fetching app config...');
       getAppConfig()
         .then(async (res) => {
+          console.log('App config fetched successfully:', res);
           dispatch(setNetworks(res));
           const sdk = new AutSDK({
             enableDebug: environment.env === EnvMode.Development,
@@ -40,13 +43,17 @@ function App() {
               gatewayUrl: environment.ipfsGatewayUrl
             }
           });
+          console.log('AutSDK initialized');
           setLoading(false);
         })
-        .catch(() => {
+        .catch((error) => {
+          console.error('Error fetching app config:', error);
           setLoading(false);
           setError(true);
         });
     } else {
+      console.log('Participation score page, setting loading to false');
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setLoading(false);
     }
   }, [isParticipationScorePage]);

@@ -48,9 +48,15 @@ export const fetchHubsAndAutIDs = async (
       }
     }
   `;
-  const response = await apolloClient.query<any>({
-    query
-  });
+  let response;
+  try {
+    response = await apolloClient.query<any>({
+      query
+    });
+  } catch (error) {
+    console.error('Error fetching hubs and autIDs:', error);
+    throw error;
+  }
 
   const fetchHubsMetadata = () => {
     return response.data.hubs.map(
@@ -74,9 +80,14 @@ export const fetchHubsAndAutIDs = async (
             deployer,
             members: [],
             address,
-            domain
+            domain,
+            roles: [],
+            marketTemplate: undefined,
+            prestige: 0,
+            absoluteValue: 0,
+            market: undefined
           }
-        } as HubOSHub);
+        } as any);
       }
     );
   };
@@ -108,7 +119,8 @@ export const fetchHubsAndAutIDs = async (
               isAdmin: false
             })
           ),
-          network: null
+          network: null,
+          tokenId: id
         }
       });
     });
@@ -388,7 +400,7 @@ export const setArchetype = async (
   try {
     const sdk = await AutSDK.getInstance();
     body.hub.properties.archetype = body.archetype;
-    const updatedHub = HubOSHub.updateHubNFT(body.hub);
+    const updatedHub = body.hub; // HubOSHub.updateHubNFT(body);
     const uri = await sdk.client.sendJSONToIPFS(updatedHub as any);
     const hubService = sdk.initService<Hub>(Hub, body.hub.properties.address);
     const result = await hubService.contract.metadata.setMetadataUri(uri);
@@ -411,7 +423,7 @@ export const setArchetype = async (
 export const updateHub = async (body: HubOSHub, api: BaseQueryApi) => {
   try {
     const sdk = await AutSDK.getInstance();
-    const updatedHub = HubOSHub.updateHubNFT(body);
+    const updatedHub = body; // HubOSHub.updateHubNFT(body);
     const uri = await sdk.client.sendJSONToIPFS(updatedHub as any);
     console.log("uri", uri);
     const hubService: Hub = sdk.initService<Hub>(Hub, body.properties.address);

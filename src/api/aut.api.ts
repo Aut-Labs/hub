@@ -15,10 +15,12 @@ export const getHubSigil = async (hubAddress: string): Promise<string> => {
   if (sigilCache[hubAddress]) {
     return sigilCache[hubAddress];
   }
-  return axios
-    .get(`${environment.apiUrl}/user/generateSigil/${hubAddress}`)
-    .then(({ data }) => {
-      sigilCache[hubAddress] = data.sigil;
-      return data.sigil;
-    });
+  try {
+    const response = await axios.get(`${environment.apiUrl}/user/generateSigil/${hubAddress}`);
+    sigilCache[hubAddress] = response.data.sigil;
+    return response.data.sigil;
+  } catch (error) {
+    console.error('Error fetching hub sigil:', error);
+    throw error;
+  }
 };

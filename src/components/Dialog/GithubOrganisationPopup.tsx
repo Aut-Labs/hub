@@ -139,8 +139,6 @@ const GitHubOrgSelectionDialog = ({
             };
           }
         }
-        // eslint-disable-next-line no-debugger
-        debugger;
         onChange(selectedOrg.login);
         setValue(`socials.${index}.metadata`, {
           orgId: selectedOrg.id,

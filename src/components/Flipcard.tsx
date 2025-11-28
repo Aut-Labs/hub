@@ -22,7 +22,7 @@ const Flipcard = (props) => {
       setFlipped(props.isFlipped);
       setRotation((c) => c + 180);
     }
-  }, [isFlipped, props.isFlipped]);
+  }, [props.isFlipped]);
 
   const getContainerClassName = useMemo(() => {
     let className = "aut-card-flip";
@@ -39,18 +39,14 @@ const Flipcard = (props) => {
     return props.children[key];
   };
 
-  const frontRotateY = `rotateY(${
-    infinite ? rotation : isFlipped ? 180 : 0
-  }deg)`;
-  const backRotateY = `rotateY(${
-    infinite ? rotation + 180 : isFlipped ? 0 : -180
-  }deg)`;
-  const frontRotateX = `rotateX(${
-    infinite ? rotation : isFlipped ? 180 : 0
-  }deg)`;
-  const backRotateX = `rotateX(${
-    infinite ? rotation + 180 : isFlipped ? 0 : -180
-  }deg)`;
+  const frontRotateY = `rotateY(${infinite ? rotation : isFlipped ? 180 : 0
+    }deg)`;
+  const backRotateY = `rotateY(${infinite ? rotation + 180 : isFlipped ? 0 : -180
+    }deg)`;
+  const frontRotateX = `rotateX(${infinite ? rotation : isFlipped ? 180 : 0
+    }deg)`;
+  const backRotateX = `rotateX(${infinite ? rotation + 180 : isFlipped ? 0 : -180
+    }deg)`;
 
   interface Styles {
     back: CSSProperties;

@@ -2,7 +2,7 @@ import { memo, useEffect, useRef } from "react";
 import { Init } from "@aut-labs/d-aut";
 import { AutWalletConnector, useAutConnector } from "@aut-labs/connector";
 import { useSelector } from "react-redux";
-import { NetworkConfig } from "@api/network.config";
+import { NetworkConfig } from "@aut-labs/d-aut/types/network";
 import { RequiredQueryParams } from "@api/RequiredQueryParams";
 import { MultiSigner } from "@aut-labs/sdk/dist/models/models";
 import { hubUpdateState } from "@store/Hub/hub.reducer";

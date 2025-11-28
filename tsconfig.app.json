@@ -2,34 +2,95 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@assets/*": ["src/assets/*"],
-      "@store/*": ["src/redux/*"],
-      "@utils/*": ["src/utils/*"],
-      "@auth/*": ["src/auth/*"],
-      "@components/*": ["src/components/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@api/*": ["src/api/*"],
-      "@theme/*": ["src/theme/*"]
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@store/*": [
+        "src/redux/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
+      "@auth/*": [
+        "src/auth/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
+      "@api/*": [
+        "src/api/*"
+      ],
+      "@theme/*": [
+        "src/theme/*"
+      ],
+      "@lib/*": [
+        "src/lib/*"
+      ],
+      "@aut-labs/connector": [
+        "src/lib/connector"
+      ],
+      "@aut-labs/connector/*": [
+        "src/lib/connector/*"
+      ],
+      "@aut-labs/d-aut": [
+        "src/lib/d-aut"
+      ],
+      "@aut-labs/d-aut/*": [
+        "src/lib/d-aut/*"
+      ],
+      "@aut-labs/sdk": [
+        "src/lib/sdk/src/index.ts"
+      ],
+      "@aut-labs/sdk/*": [
+        "src/lib/sdk/*"
+      ],
+      "@aut-labs/abi-types": [
+        "../contracts/types/ethers-contracts"
+      ],
+      "@aut-labs/abi-types/*": [
+        "../contracts/types/ethers-contracts/*"
+      ],
+      "@sdk-utils/*": [
+        "src/lib/sdk/src/utils/*"
+      ],
+      "@sdk-models/*": [
+        "src/lib/sdk/src/models/*"
+      ],
+      "@sdk-services/*": [
+        "src/lib/sdk/src/services/*"
+      ],
+      "@sdk-contracts/*": [
+        "src/lib/sdk/src/contracts/*"
+      ]
     },
     "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "module": "ESNext",
     "skipLibCheck": false,
-
     /* Bundler mode */
     "moduleResolution": "node",
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
+    "resolveJsonModule": true,
     "noEmit": true,
     "jsx": "react-jsx",
-
     /* Linting */
     "strict": false,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "allowSyntheticDefaultImports": true
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }

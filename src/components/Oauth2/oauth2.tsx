@@ -58,8 +58,6 @@ export const useOAuthSocials = () => {
           if (error) {
             onFailure(error);
           } else {
-            // eslint-disable-next-line no-debugger
-            debugger;
             const response = await axios.post(
               `${environment.apiUrl}/aut/config/oauth2AccessTokenDiscord`,
               {

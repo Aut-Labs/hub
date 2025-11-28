@@ -55,10 +55,6 @@ const DomainRegistrationDialog = ({ open, onClose, onRegister }) => {
   const [isValid, setIsValid] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  useEffect(() => {
-    validateDomain(domain);
-  }, [domain]);
-
   const validateDomain = (value) => {
     // Domain regex breakdown:
     // ^[a-zA-Z0-9]                 - Start with a letter or number
@@ -86,6 +82,12 @@ const DomainRegistrationDialog = ({ open, onClose, onRegister }) => {
       setErrorMessage("");
     }
   };
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    validateDomain(domain);
+  }, [domain]);
+
   const handleRegister = () => {
     if (isValid) {
       onRegister(domain.trim().toLowerCase());

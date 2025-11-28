@@ -526,24 +526,12 @@ export function AutEditHubDialog(props: EditDialogProps) {
                                     getAuthGithub(
                                       async (data) => {
                                         const { access_token } = data;
-                                        // eslint-disable-next-line no-debugger
-                                        debugger;
-                                        // eslint-disable-next-line no-debugger
-                                        // const orgs = await axios.post(
-                                        //   `${environment.apiUrl}/tasks/github/getOrganistaions`,
-                                        //   {
-                                        //     accessToken: access_token
-                                        //   }
-                                        // );
                                         const orgsResponse = await axios.post(
                                           `${environment.apiUrl}/task/github/getOrganistaions`,
                                           {
                                             accessToken: access_token
                                           }
                                         );
-
-                                        // eslint-disable-next-line no-debugger
-                                        debugger;
                                         setGithubOrgs(
                                           orgsResponse.data.organizations
                                         );

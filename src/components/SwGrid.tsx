@@ -14,23 +14,21 @@ const SwGrid = ({ left, right, maxWidth = "lg" }) => {
         sx={{ gridGap: pxToRem(20), height: "100%" }}
       >
         <Grid
-          item
-          md
           width="100%"
           sx={{
             display: "flex",
-            flexDirection: "column"
+            flexDirection: "column",
+            flexGrow: 1
           }}
         >
           {left}
         </Grid>
         <Grid
-          item
-          md
           width="100%"
           sx={{
             display: "flex",
-            flexDirection: "column"
+            flexDirection: "column",
+            flexGrow: 1
           }}
         >
           {right}

@@ -44,11 +44,19 @@ export const MarketTemplates = [
 export class HubProperties extends BaseHubProperties {
   members: HubOSAutID[];
   metadataUri: string;
+  contract: string;
+  archetype: { default: any };
+  market: number;
+  socials: any[];
 
   constructor(data: HubProperties) {
     super(data);
     this.members = data.members;
     this.metadataUri = data.metadataUri;
+    this.contract = data.contract;
+    this.archetype = data.archetype;
+    this.market = data.market;
+    this.socials = data.socials;
   }
 }
 

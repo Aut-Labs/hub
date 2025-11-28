@@ -573,7 +573,6 @@ const ParticipationScore = () => {
       >
         {membersData.map((memberData, memberIndex) => (
           <Grid
-            item
             key={memberIndex}
             sx={{
               // Fixed width for each member's box
@@ -667,7 +666,7 @@ const ParticipationScore = () => {
                 />
                 <Box sx={{ mt: 2, flexGrow: 1, overflowY: "auto" }}>
                   <Grid container spacing={1} alignItems="center">
-                    <Grid item xs={6}>
+                    <Grid size={{ xs: 6 }}>
                       <MuiTooltip title="Individual Commitment Level" arrow>
                         <Typography
                           fontFamily="FractulRegular"
@@ -684,7 +683,7 @@ const ParticipationScore = () => {
                         </Typography>
                       </MuiTooltip>
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid size={{ xs: 6 }}>
                       <MuiTooltip title="Performance" arrow>
                         <Typography
                           fontFamily="FractulRegular"
@@ -710,7 +709,7 @@ const ParticipationScore = () => {
                       key={index}
                       sx={{ mt: 1 }}
                     >
-                      <Grid item xs={6}>
+                      <Grid size={{ xs: 6 }}>
                         <CustomSlider
                           value={point.iCL}
                           onChange={(e, newValue) =>
@@ -726,7 +725,7 @@ const ParticipationScore = () => {
                           step={0.1}
                         />
                       </Grid>
-                      <Grid item xs={6}>
+                      <Grid size={{ xs: 6 }}>
                         <AutTextField
                           type="number"
                           sx={{
@@ -772,7 +771,7 @@ const ParticipationScore = () => {
           justifyContent: "flex-start"
         }}
       >
-        <Grid item sx={{ width: 80, mr: 2 }}>
+        <Grid sx={{ width: 80, mr: 2 }}>
           <Typography
             fontFamily="FractulRegular"
             color="white"
@@ -807,7 +806,6 @@ const ParticipationScore = () => {
           if (membersInSameHub && memberIndex > 0) return null;
           return (
             <Grid
-              item
               key={memberIndex}
               sx={{
                 width: 350,
@@ -833,7 +831,7 @@ const ParticipationScore = () => {
                   Hub {membersInSameHub ? "" : memberIndex + 1}
                 </Typography>
                 <Grid container spacing={2}>
-                  {/* <Grid item xs={12}>
+                  {/* <Grid size={{ xs: 12 }}>
                     <FormControlLabel
                       control={
                         <Switch
@@ -852,7 +850,7 @@ const ParticipationScore = () => {
                     />
                   </Grid>
                   {memberAutoIncrement[memberIndex] && (
-                    <Grid item xs={12}>
+                    <Grid size={{ xs: 12 }}>
                       <AutTextField
                         type="number"
                         color="offWhite"
@@ -884,8 +882,7 @@ const ParticipationScore = () => {
                       sx={{
                         visibility: memberIndex === 0 ? "hidden" : "visible"
                       }}
-                      item
-                      xs={12}
+                      size={{ xs: 12 }}
                     >
                       <FormControlLabel
                         control={
@@ -908,7 +905,7 @@ const ParticipationScore = () => {
                 </Grid>
                 <Box sx={{ mt: 2, flexGrow: 1, overflowY: "auto", p: 1 }}>
                   <Grid container spacing={1} alignItems="center">
-                    <Grid item xs={6}>
+                    <Grid size={{ xs: 6 }}>
                       <MuiTooltip title="Total Community Members" arrow>
                         <Typography
                           fontFamily="FractulRegular"
@@ -925,7 +922,7 @@ const ParticipationScore = () => {
                         </Typography>
                       </MuiTooltip>
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid size={{ xs: 6 }}>
                       <MuiTooltip
                         title="Average individual Commitment Level"
                         arrow
@@ -954,7 +951,7 @@ const ParticipationScore = () => {
                       key={index}
                       sx={{ mt: 1 }}
                     >
-                      <Grid item xs={6}>
+                      <Grid size={{ xs: 6 }}>
                         <AutTextField
                           sx={{
                             width: "100%",
@@ -977,7 +974,7 @@ const ParticipationScore = () => {
                           inputProps={{ min: 1 }}
                         />
                       </Grid>
-                      <Grid item xs={6}>
+                      <Grid size={{ xs: 6 }}>
                         <CustomSlider
                           value={point.avgICL}
                           onChange={(e, newValue) =>
@@ -1046,7 +1043,7 @@ const ParticipationScore = () => {
         </StyledAccordion>
         <StyledAccordion title="Parameters">
           <Grid container spacing={2} alignItems="center">
-            <Grid item>
+            <Grid>
               <FormControlLabel
                 control={
                   <Switch
@@ -1066,7 +1063,7 @@ const ParticipationScore = () => {
                 }
               />
             </Grid>
-            <Grid item>
+            <Grid>
               <AutTextField
                 disabled={useDefaultPeriods}
                 type="number"
@@ -1087,7 +1084,7 @@ const ParticipationScore = () => {
               />
             </Grid>
 
-            <Grid item>
+            <Grid>
               <FormControlLabel
                 control={
                   <Switch
@@ -1145,7 +1142,7 @@ const ParticipationScore = () => {
                     {renderMemberSwitches()}
                   </Box>
                   <Grid container spacing={isMobile ? 0 : 2}>
-                    <Grid item xs={12}>
+                    <Grid size={{ xs: 12 }}>
                       <ValueChart
                         membersData={membersData}
                         dataKey="PS"
@@ -1176,7 +1173,7 @@ const ParticipationScore = () => {
                   {showMoreGraphs && (
                     <Fade in={showMoreGraphs} timeout={500}>
                       <Grid container spacing={isMobile ? 0 : 2} sx={{ mt: 2 }}>
-                        <Grid item xs={12} md={6}>
+                        <Grid size={{ xs: 12, md: 6 }}>
                           <ValueChart
                             membersData={membersData}
                             dataKey="TCM"
@@ -1185,7 +1182,7 @@ const ParticipationScore = () => {
                             activeMembers={activeMembers}
                           />
                         </Grid>
-                        <Grid item xs={12} md={6}>
+                        <Grid size={{ xs: 12, md: 6 }}>
                           <ValueChart
                             membersData={membersData}
                             dataKey="avgICL"
@@ -1194,7 +1191,7 @@ const ParticipationScore = () => {
                             activeMembers={activeMembers}
                           />
                         </Grid>
-                        <Grid item xs={12} md={6}>
+                        <Grid size={{ xs: 12, md: 6 }}>
                           <ValueChart
                             membersData={membersData}
                             dataKey="P"
@@ -1203,7 +1200,7 @@ const ParticipationScore = () => {
                             activeMembers={activeMembers}
                           />
                         </Grid>
-                        <Grid item xs={12} md={6}>
+                        <Grid size={{ xs: 12, md: 6 }}>
                           <ValueChart
                             membersData={membersData}
                             dataKey="iCL"

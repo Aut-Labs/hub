@@ -7,6 +7,7 @@ export interface NetworkContracts {
   autIDAddress: string;
   hubRegistryAddress: string;
   taskRegistryAddress: string;
+  [key: string]: string | undefined;
 }
 
 export interface NetworkConfig {

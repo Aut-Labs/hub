@@ -8,7 +8,7 @@ import reportWebVitals from "./reportWebVitals";
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import AutTheme from "./theme/theme";
-import { ApolloProvider } from "@apollo/client";
+import { ApolloProvider } from "@apollo/client/react";
 import { apolloClient } from "@store/graphql";
 import "./App.scss";
 import CssBaseline from "@mui/material/CssBaseline";

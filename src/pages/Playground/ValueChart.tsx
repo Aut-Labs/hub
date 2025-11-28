@@ -1,4 +1,5 @@
 import { Box, Paper, Typography } from "@mui/material";
+import { FC } from "react";
 import {
   ResponsiveContainer,
   LineChart,
@@ -11,11 +12,11 @@ import {
   TooltipProps
 } from "recharts";
 
-const CustomTooltip: FC<TooltipProps<number, string>> = ({
+const CustomTooltip = ({
   active,
   payload,
   label
-}) => {
+}: any) => {
   if (active && payload && payload.length) {
     return (
       <Paper sx={{ p: 2 }}>

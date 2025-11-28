@@ -8,7 +8,6 @@ const queryToObject = (query) => {
 
 const Callback = () => {
   useEffect(() => {
-    // eslint-disable-next-line no-debugger
     debugger;
     const payload = queryToObject(window.location.search.split("?")[1]);
     const error = payload && payload.error;
