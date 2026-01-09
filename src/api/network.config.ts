@@ -16,7 +16,6 @@ export interface NetworkConfig {
   chainId: string | number;
   rpcUrls: string[];
   explorerUrls: string[];
-  biconomyApiKey: string;
   contracts: NetworkContracts;
   disabled: boolean;
   nativeCurrency: any;
