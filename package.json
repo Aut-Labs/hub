@@ -51,7 +51,7 @@
     "@web3auth/openlogin-adapter": "^8.12.4",
     "@web3auth/wallet-services-plugin": "^9.7.0",
     "@web3auth/web3auth-wagmi-connector": "^7.0.0",
-    "axios": "^1.13.2",
+    "axios": "^1.13.5",
     "buffer": "^6.0.3",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
